@@ -13,6 +13,7 @@ module OmniAuth
         authorize_url: '/oauth2/v2.1/authorize',
         token_url: '/oauth2/v2.1/token'
       }
+      option :authorize_options, [:scope, :bot_prompt]
 
       # host changed
       def callback_phase
@@ -37,11 +38,6 @@ module OmniAuth
       rescue ::Errno::ETIMEDOUT
         raise ::Timeout::Error
       end
-
-      def authorize_params
-        %i(scope bot_prompt prompt)
-      end
-
     end
   end
 end
