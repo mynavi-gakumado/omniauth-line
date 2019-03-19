@@ -38,6 +38,10 @@ module OmniAuth
         raise ::Timeout::Error
       end
 
+      def authorize_params
+        %i(scope bot_prompt prompt)
+      end
+
     end
   end
 end
